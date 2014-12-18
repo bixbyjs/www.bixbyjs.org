@@ -1,0 +1,30 @@
+{
+  "name": "www.bixbyjs.org",
+  "version": "0.0.0",
+  "description": "The official website of Bixby.js.",
+  "private": true,
+  "author": {
+    "name": "Jared Hanson",
+    "email": "jaredhanson@gmail.com",
+    "url": "http://www.jaredhanson.net/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bixbyjs/www.bixbyjs.org.git"
+  },
+  "bugs": {
+    "url": "http://github.com/bixbyjs/www.bixbyjs.org/issues"
+  },
+  "licenses": [ {
+    "type": "CC BY-SA 3.0",
+    "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+  } ],
+  "dependencies": {
+    "kerouac": "0.0.x",
+    "kerouac-robotstxt": "0.1.x",
+    "kerouac-sitemap": "0.1.x",
+    "kerouac-htaccess": "0.1.x",
+    "ejs-locals": "1.x.x",
+    "express": "4.x.x"
+  }
+}
