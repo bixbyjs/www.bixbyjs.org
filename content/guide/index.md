@@ -25,6 +25,7 @@ it is one that Bixby.js aims to accomplish.  It does so by adopting a
 [microservices](http://en.wikipedia.org/wiki/Microservices) architecture along
 with [interface-based programming](http://en.wikipedia.org/wiki/Interface-based_programming).
 
-As you adopt Bixby.js, you'll be following the hard-learned lessons distilled by
+As you use Bixby.js, you'll be following the hard-learned lessons distilled by
 [The Twelve Factors](http://12factor.net/), resulting in applications that are
-easier to develop and operate in collaboration with other team members.
+easier to develop and operate, whether you are part of a small team or a large
+organization.
