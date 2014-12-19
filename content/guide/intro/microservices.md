@@ -6,7 +6,7 @@ title: 'Microservices'
 ### Microservices
 
 A [microservices](http://en.wikipedia.org/wiki/Microservices) architecture is
-one which constructs an application as a suite of small, independedent services
+one which constructs an application as a suite of small, independent services
 that communicate with each other via a network.  As [noted](http://martinfowler.com/articles/microservices.html)
 by Martin Fowler, there is no precise definition of this architecture, but
 rather a set of common characteristics that offer guidelines about how to
