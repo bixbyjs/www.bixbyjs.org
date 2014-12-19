@@ -29,3 +29,9 @@ As you use Bixby.js, you'll be following the hard-learned lessons distilled by
 [The Twelve Factors](http://12factor.net/), resulting in applications that are
 easier to develop and operate, whether you are part of a small team or a large
 organization.
+
+
+## TODO: Ideas
+
+Microservices eliminate bottlenecks, in deployment, in developer collaboration, 
+in operational scalability.
