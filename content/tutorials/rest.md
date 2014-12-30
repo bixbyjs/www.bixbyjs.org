@@ -147,8 +147,9 @@ handle requests.  The processing here is straightforward for the sake of a
 simple example.  The body is parsed and then any operands within the body are
 summed and the result is returned.
 
-Notice that the `add` function logs the operands for debugging purposes.  The
-logger is requested and injected by virtue of the `@require` annotation.
+Notice that the `add(req, res, next)` function logs the operands for debugging
+purposes.  The logger is requested and injected by virtue of the `@require`
+annotation.
 
 ```javascript
 exports['@require'] = [ 'logger' ];
