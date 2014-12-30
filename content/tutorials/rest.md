@@ -256,7 +256,7 @@ and proceed with `mathuid`.
 
 ##### Install Dependencies
 
-We'll start of with this applicaiton in a similar manner.  Cloning the `mathuid` repository:
+We'll start of with this application in a similar manner.  Cloning the `mathuid` repository:
 
 ```bash
 $ git clone https://github.com/bixbyjs-examples/mathuid.git
