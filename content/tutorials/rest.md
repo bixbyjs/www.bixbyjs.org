@@ -395,10 +395,10 @@ registry.resolve('math.common.', 'http://schemas.example.com/api/math/v1', funct
 }
 ```
 
-`mathd` implements the service type `http://schemas.example.com/api/math/v1` and
-announces it within the `math.common.` _domain_.  Resolving that service results
-in an array of locations containing all running instances.  The first location is
-chosen, and a request is sent, using the execelent [request](https://github.com/request/request)]
+`mathd` implements the service _type_ `http://schemas.example.com/api/math/v1`
+and announces it within the `math.common.` _domain_.  Resolving that service
+results in an array of locations containing all running instances.  The first
+location is chosen, and a request is sent, using the execelent [request](https://github.com/request/request)]
 package.
 
 ```javascript
