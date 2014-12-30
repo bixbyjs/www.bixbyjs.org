@@ -38,9 +38,3 @@ techniques allows teams to make informed decisions.
 The result is a coherent approach that makes it easier to develop, maintain, and
 operate applications, whether you are part of a small team or a large
 organization.
-
-
-## TODO: Ideas
-
-Microservices eliminate bottlenecks, in deployment, in developer collaboration, 
-in operational scalability.
