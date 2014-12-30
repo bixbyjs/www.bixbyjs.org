@@ -420,3 +420,49 @@ Once the result is obtained, it is displayed to the user.
 ```javascript
 res.render('add-result');
 ```
+
+##### Start Server
+
+Let's start the application.
+
+```bash
+$ npm start
+info: Connecting to service registry 127.0.0.1:4001
+debug: Connected to service registry 127.0.0.1:4001
+info: HTTP server listening on 0.0.0.0:8080
+info: Announcing service http://schemas.example.com/ui/math in math.example.local. at http://10.200.1.85:8080/
+```
+
+Navigate to [http://127.0.0.1:8080/add](http://127.0.0.1:8080/add) and add
+some numbers.  Excellent!  `mathuid` is serving web forms and `mathd` is
+performing calculations.
+
+##### Scale Out
+
+This example is trivial, but lets imagine that mathematical operations were so
+popular that we could no longer perform them in using a single machine.  All
+we have to do is start another instance of `mathd`.
+
+```bash
+$ cd mathd
+$ npm start
+info: Connecting to service registry 127.0.0.1:4001
+debug: Connected to service registry 127.0.0.1:4001
+info: HTTP server listening on 0.0.0.0:49355
+info: Announcing service http://schemas.example.com/api/math/v1 in math.common. at http://10.200.1.85:49355/
+```
+
+Now go ahead and submit some more numbers to be added.  You'll notice that
+`mathuid` will send requests to one or the other of the two running `mathd`
+instances.  When the instances are resolved, the resulting array will be
+randomized.  Picking the first element in the array will balance the load
+across the two instances in a roughly equal way.  If load increases further
+and two instances are no longer sufficent, simply spin up more instances
+as needed.
+
+### Summary
+
+
+
+
+
