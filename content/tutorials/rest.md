@@ -8,7 +8,7 @@ This tutorial illustrates how to implement inter-service communication using a
 
 We'll be implementing two processes during the course of this tutorial.  The
 first, [`mathd`](https://github.com/bixbyjs-examples/mathd), is a [daemon](http://en.wikipedia.org/wiki/Daemon_%28computing%29)
-that services requests for mathematical operations.  The second, [mathuid](https://github.com/bixbyjs-examples/mathuid),
+that services requests for mathematical operations.  The second, [`mathuid`](https://github.com/bixbyjs-examples/mathuid),
 provides a web-based interface that allows users to add and subtract numbers.
 `mathuid` sends requests to `mathd` to perform the calculations.
 
@@ -19,7 +19,7 @@ provides a web-based interface that allows users to add and subtract numbers.
 Let's start by cloning the `mathd` repository:
 
 ```bash
-ssh clone git@github.com:bixbyjs-examples/mathd.git
+git clone https://github.com/bixbyjs-examples/mathd.git
 ```
 
 and installing dependencies.
@@ -77,7 +77,8 @@ directory and registered under the "handlers" namespace.  Component suites for
 [Express](https://github.com/bixbyjs/bixby-express), [service discovery](https://github.com/bixbyjs/bixby-sd),
 and [common](https://github.com/bixbyjs/bixby-common) functionality are also utilized.
 
-Next, we declare the boot sequence for the application.
+Next, we use [Bootable](https://github.com/jaredhanson/bootable) to control the
+boot sequence of the application.
 
 ```
 app.phase(bootable.di.initializers(__dirname + '/init'));
