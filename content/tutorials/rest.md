@@ -89,12 +89,12 @@ app.phase(IoC.create('sd/boot/announce'));
 
 First, the initializers will be run and routes will be drawn.  After that, the
 application will connect to the service registry and start the HTTP server to
-listen for requests.  Finally, it will application will announce its services in
-the registry so that other applications can discover them.
+listen for requests.  Finally, the application will announce its services in the
+registry so that other applications can discover them.
 
 ##### Draw Routes
 
-The routes supported by this application are drawn in [app/routes.js](https://github.com/bixbyjs-examples/mathd/blob/master/app/routes.js).
+The routes supported by the application are drawn in [app/routes.js](https://github.com/bixbyjs-examples/mathd/blob/master/app/routes.js).
 
 ```javascript
 exports = module.exports = function(IoC) {
