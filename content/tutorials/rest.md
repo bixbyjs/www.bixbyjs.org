@@ -3,8 +3,9 @@ layout: 'tutorial'
 title: 'RESTful APIs'
 ---
 
-This tutorial illustrates how to implement inter-service communication using a
-[RESTful](http://en.wikipedia.org/wiki/Representational_state_transfer) API.
+This tutorial illustrates how to implement scalable inter-service communication
+using a [RESTful](http://en.wikipedia.org/wiki/Representational_state_transfer)
+API.
 
 We'll be implementing two processes during the course of this tutorial.  The
 first, [`mathd`](https://github.com/bixbyjs-examples/mathd), is a [daemon](http://en.wikipedia.org/wiki/Daemon_%28computing%29)
