@@ -111,7 +111,7 @@ exports['@require'] = [ '$container' ];
 
 Here we encounter our first use of dependency injection using the IoC container.
 `$container` is a special component that refers to the IoC container itself, which
-can be used to create components.
+can be used to create other components.
 
 In this case, all request handlers are implemented as components.  This eliminates
 boilerplate code as the handlers themselves can take advantage of dependency
