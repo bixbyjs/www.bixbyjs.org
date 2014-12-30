@@ -148,8 +148,7 @@ simple example.  The body is parsed and then any operands within the body are
 summed and the result is returned.
 
 Notice that the `add(req, res, next)` function logs the operands for debugging
-purposes.  The logger is requested and injected by virtue of the `@require`
-annotation.
+purposes.  The logger is injected by virtue of the `@require` annotation.
 
 ```javascript
 exports['@require'] = [ 'logger' ];
