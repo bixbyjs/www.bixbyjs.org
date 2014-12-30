@@ -171,3 +171,37 @@ this.post('/add', IoC.create('handlers/add'));
 
 Take a look at [app/handlers/sub.js](https://github.com/bixbyjs-examples/mathd/blob/master/app/handlers/sub.js)
 which operates similarly.
+
+##### Start HTTP Server
+
+The HTTP server begins listening for requests when the boot phase created by
+`IoC.create('boot/httpserver')` is executed.  This phase is supplied by
+[bixby-express](https://github.com/bixbyjs/bixby-express).
+
+The settings that determine how the HTTP server operates are specified in
+[etc/development.toml](https://github.com/bixbyjs-examples/mathd/blob/master/etc/development.toml).
+
+```toml
+[server]
+port = 0
+```
+
+In this case, the port is set to `0`, which indicates that the system will
+assign the service a random port.  We'll use this to our advantage later.
+
+##### Announce Services
+
+With the HTTP server running, the services provided by `mathd` are announced so
+that they can be discovered and used by other applications.  This is done when
+the boot phase created by `IoC.create('sd/boot/announce')` (supplied by [bixby-sd](https://github.com/bixbyjs/bixby-sd))
+is invoked.
+
+The services provided by the application are declared in [app/services.json](https://github.com/bixbyjs-examples/mathd/blob/master/app/services.json).
+
+```json
+{
+    "math.common.": {
+        "http://schemas.example.com/api/math/v1": "/"
+    }
+}
+```
