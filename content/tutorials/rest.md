@@ -210,7 +210,7 @@ The services provided by the application are declared in [app/services.json](htt
 Service discovery is one of the key pieces of functionality provided by
 Bixby.js.  A service registry provides a way for an application to discover
 services provided by other applications.  This example is configured to use
-etcd as a service registry.
+[etcd](https://github.com/coreos/etcd) as a service registry.
 
 ```toml
 [sd]
