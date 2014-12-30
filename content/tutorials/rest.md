@@ -459,10 +459,3 @@ randomized.  Picking the first element in the array will balance the load
 across the two instances in a roughly equal way.  If load increases further
 and two instances are no longer sufficent, simply spin up more instances
 as needed.
-
-### Summary
-
-
-
-
-
