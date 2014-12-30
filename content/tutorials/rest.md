@@ -194,7 +194,7 @@ assign the server a random port.  We'll use this to our advantage later.
 
 With the HTTP server running, the services provided by `mathd` are announced so
 that they can be discovered and used by other applications.  This is done when
-the boot phase created by `IoC.create('sd/boot/announce')` (supplied by [bixby-sd](https://github.com/bixbyjs/bixby-sd))
+the boot phase created by `IoC.create('sd/boot/announce')`, supplied by [bixby-sd](https://github.com/bixbyjs/bixby-sd),
 is invoked.
 
 The services provided by the application are declared in [app/services.json](https://github.com/bixbyjs-examples/mathd/blob/master/app/services.json).
