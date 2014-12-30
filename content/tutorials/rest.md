@@ -305,7 +305,7 @@ Let's take a look at how addition is implemented.
 [app/handlers/add/show.js](https://github.com/bixbyjs-examples/mathuid/blob/master/app/handlers/add/show.js)
 renders a form for display in the user's browser.
 
-```
+```javascript
 exports = module.exports = function() {
   
   function respond(req, res, next) {
@@ -316,12 +316,107 @@ exports = module.exports = function() {
   
 }
 
-/**
- * Component annotations.
- */
 exports['@require'] = [];
 ```
 
 The form itself is contained in the [app/views/add.ejs](https://github.com/bixbyjs-examples/mathuid/blob/master/app/views/add.ejs)
 template.
 
+When the form is submitted, the request is processed by [app/handlers/add/calc.js](https://github.com/bixbyjs-examples/mathuid/blob/master/app/handlers/add/calc.js).
+
+```javascript
+var request = require('request')
+  , bodyParser = require('body-parser')
+  , errorHandler = require('errorhandler');
+
+exports = module.exports = function(registry, logger) {
+  
+  function add(req, res, next) {
+    registry.resolve('math.common.', 'http://schemas.example.com/api/math/v1', function(err, records) {
+      if (err) { return next(err); }
+      
+      var baseURL = records[0];
+      if (baseURL[baseURL.length - 1] != '/') { baseURL += '/'; }
+      
+      logger.debug('Sending add request to ' + baseURL);
+      request.post({
+        url: baseURL + 'add',
+        body: { operands: [ parseFloat(req.body['1']), parseFloat(req.body['2']) ] },
+        json: true,
+        timeout: 60000
+      }, function(err, resp, body) {
+        if (err) { return next(err); }
+        res.locals.operands = body.operands;
+        res.locals.result = body.result;
+        next();
+      });
+    });
+  }
+  
+  function respond(req, res, next) {
+    res.render('add-result');
+  }
+
+  return [ bodyParser.urlencoded(),
+           add,
+           respond,
+           errorHandler() ];
+  
+}
+
+exports['@require'] = [ 'sd/registry', 'logger' ];
+```
+
+Here things get interesting and begin to show the benefits of service discovery.
+Let's walk through the important bits.
+
+As is the case with the handlers in `mathd`, we are using dependency injection.
+This time, though, the service registry is required in addition to the logger.
+
+```javascript
+exports['@require'] = [ 'sd/registry', 'logger' ];
+```
+
+When `IoC.create('handlers/add/calc')` is invoked, the IoC container will
+automatically instantiate both the service registry and the logger and inject
+them into the exported factory function as `registry` and `logger` parameters,
+respectively.
+
+The `add(req, res, next)` function does not perform any calculations, but rather
+uses the service provided by `mathd`.  Instances of that service are found by
+resolving them using the service registry.
+
+```javascript
+registry.resolve('math.common.', 'http://schemas.example.com/api/math/v1', function(err, records) {
+  if (err) { return next(err); }
+      
+  var baseURL = records[0];
+  // ...
+}
+```
+
+`mathd` implements the service type `http://schemas.example.com/api/math/v1` and
+announces it within the `math.common.` _domain_.  Resolving that service results
+in an array of locations containing all running instances.  The first location is
+chosen, and a request is sent, using the execelent [request](https://github.com/request/request)]
+package.
+
+```javascript
+request.post({
+  url: baseURL + 'add',
+  body: { operands: [ parseFloat(req.body['1']), parseFloat(req.body['2']) ] },
+  json: true,
+  timeout: 60000
+}, function(err, resp, body) {
+  if (err) { return next(err); }
+  res.locals.operands = body.operands;
+  res.locals.result = body.result;
+  next();
+});
+```
+
+Once the result is obtained, it is displayed to the user.
+
+```javascript
+res.render('add-result');
+```
