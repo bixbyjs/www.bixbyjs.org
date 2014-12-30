@@ -52,9 +52,9 @@ Let's take a look at [package.json](https://github.com/bixbyjs-examples/mathd/bl
 }
 ```
 
-This service uses [Express](http://expressjs.com/) as a web framework and builds
-upon various component suites provided by Bixby.js.  As is the case with all
-Bixby.js-based applications, [Electrolyte](https://github.com/jaredhanson/electrolyte)
+This application uses [Express](http://expressjs.com/) as a web framework and
+builds upon various component suites provided by Bixby.js.  As is the case with
+all Bixby.js-based applications, [Electrolyte](https://github.com/jaredhanson/electrolyte)
 is used as an IoC container.  We'll see examples of how all these fit together
 we continue.
 
