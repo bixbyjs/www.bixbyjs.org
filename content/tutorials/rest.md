@@ -441,7 +441,7 @@ performing calculations.
 ##### Scale Out
 
 This example is trivial, but lets imagine that mathematical operations were so
-popular that we could no longer perform them in using a single machine.  All
+popular that we could no longer perform them using a single machine.  All we
 we have to do is start another instance of `mathd`.
 
 ```bash
