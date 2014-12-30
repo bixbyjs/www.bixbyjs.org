@@ -188,7 +188,7 @@ port = 0
 ```
 
 In this case, the port is set to `0`, which indicates that the system will
-assign the service a random port.  We'll use this to our advantage later.
+assign the server a random port.  We'll use this to our advantage later.
 
 ##### Announce Services
 
@@ -209,7 +209,13 @@ The services provided by the application are declared in [app/services.json](htt
 
 Service discovery is one of the key pieces of functionality provided by
 Bixby.js.  A service registry provides a way for an application to discover
-services provided by other applications.
+services provided by other applications.  This example is configured to use
+etcd as a service registry.
+
+```toml
+[sd]
+url = "etcd://127.0.0.1:4001"
+```
 
 The JSON above indicates that the service _type_ `http://schemas.example.com/api/math/v1`
 is available within the `math.common.` _domain_.  A domain is simply some
