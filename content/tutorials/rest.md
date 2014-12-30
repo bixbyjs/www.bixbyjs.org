@@ -399,7 +399,7 @@ registry.resolve('math.common.', 'http://schemas.example.com/api/math/v1', funct
 `mathd` implements the service _type_ `http://schemas.example.com/api/math/v1`
 and announces it within the `math.common.` _domain_.  Resolving that service
 results in an array of locations, one element for each running instance.  The
-first location is chosen, and a request is sent, using the excellent [request](https://github.com/request/request)]
+first location is chosen, and a request is sent, using the excellent [request](https://github.com/request/request)
 package.
 
 ```javascript
