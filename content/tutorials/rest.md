@@ -256,7 +256,7 @@ and proceed with `mathuid`.
 
 ##### Install Dependencies
 
-We'll start off with this application in a similar manner.  Cloning the `mathuid` repository:
+We'll start off with this application in a similar manner.  Clone the `mathuid` repository:
 
 ```bash
 $ git clone https://github.com/bixbyjs-examples/mathuid.git
@@ -298,7 +298,7 @@ exports = module.exports = function(IoC) {
 exports['@require'] = [ '$container' ];
 ```
 
-`mathuid` presents forms to the user in which two numbers can be entered.  When
+`mathuid` presents a form to the user in which two numbers can be entered.  When
 submitted, the calculation is performed and the result is displayed to the user.
 Let's take a look at how addition is implemented.
 
