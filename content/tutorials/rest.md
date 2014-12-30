@@ -19,14 +19,14 @@ provides a web-based interface that allows users to add and subtract numbers.
 Let's start by cloning the `mathd` repository:
 
 ```bash
-git clone https://github.com/bixbyjs-examples/mathd.git
+$ git clone https://github.com/bixbyjs-examples/mathd.git
 ```
 
 and installing dependencies.
 
 ```bash
-cd mathd
-npm install
+$ cd mathd
+$ npm install
 ```
 
 Let's take a look at [package.json](https://github.com/bixbyjs-examples/mathd/blob/master/package.json).
@@ -80,7 +80,7 @@ and [common](https://github.com/bixbyjs/bixby-common) functionality are also uti
 Next, we use [Bootable](https://github.com/jaredhanson/bootable) to control the
 boot sequence of the application.
 
-```
+```javascript
 app.phase(bootable.di.initializers(__dirname + '/init'));
 app.phase(bootable.di.routes(__dirname + '/routes'));
 app.phase(IoC.create('sd/registry'));
