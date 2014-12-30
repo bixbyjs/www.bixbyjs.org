@@ -248,7 +248,80 @@ $ curl -X POST -H "Content-Type: application/json" --data "{\"operands\":[1,2]}"
 {"operands":[1,2],"result":3}
 ```
 
-Great!  `mathd` is operational.
+Great!  `mathd` is operational.  Let's leave it running, open a new terminal,
+and proceed with `mathuid`.
 
 
 ### mathuid
+
+##### Install Dependencies
+
+We'll start of with this applicaiton in a similar manner.  Cloning the `mathuid` repository:
+
+```bash
+$ git clone https://github.com/bixbyjs-examples/mathuid.git
+```
+
+and install dependencies.
+
+```bash
+$ cd mathuid
+$ npm install
+```
+
+##### Create Application
+
+The setup for `mathuid` is nearly identical to that of `mathd`.  Take moment to
+explore [package.json](https://github.com/bixbyjs-examples/mathuid/blob/master/package.json),
+[app/app.js](https://github.com/bixbyjs-examples/mathuid/blob/master/app/app.js),
+[app/services.json](https://github.com/bixbyjs-examples/mathuid/blob/master/app/services.json),
+and [etc/development.toml](https://github.com/bixbyjs-examples/mathuid/blob/master/etc/development.toml).
+
+Notice the similarities.  This boilerplate is kept to a bare minimum and will be
+found in most applications that use Bixby.js.
+
+##### Draw Routes
+
+Again, the routes available in this application are drawn in [app/routes.js](https://github.com/bixbyjs-examples/mathuid/blob/master/app/routes.js).
+
+```javascript
+exports = module.exports = function(IoC) {
+
+  this.get('/add', IoC.create('handlers/add/show'));
+  this.post('/add', IoC.create('handlers/add/calc'));
+  
+  this.get('/sub', IoC.create('handlers/sub/show'));
+  this.post('/sub', IoC.create('handlers/sub/calc'));
+  
+};
+
+exports['@require'] = [ '$container' ];
+```
+
+`mathuid` presents forms to the user in which two numbers can be entered.  When
+submitted, the calculation is performed and the result is displayed to the user.
+Let's take a look at how addition is implemented.
+
+[app/handlers/add/show.js](https://github.com/bixbyjs-examples/mathuid/blob/master/app/handlers/add/show.js)
+renders a form for display in the user's browser.
+
+```
+exports = module.exports = function() {
+  
+  function respond(req, res, next) {
+    res.render('add');
+  }
+  
+  return [ respond ];
+  
+}
+
+/**
+ * Component annotations.
+ */
+exports['@require'] = [];
+```
+
+The form itself is contained in the [app/views/add.ejs](https://github.com/bixbyjs-examples/mathuid/blob/master/app/views/add.ejs)
+template.
+
