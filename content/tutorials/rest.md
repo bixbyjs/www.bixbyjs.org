@@ -172,7 +172,7 @@ this.post('/add', IoC.create('handlers/add'));
 Take a look at [app/handlers/sub.js](https://github.com/bixbyjs-examples/mathd/blob/master/app/handlers/sub.js)
 which operates similarly.
 
-##### Start HTTP Server
+##### Listen for HTTP Requests
 
 The HTTP server begins listening for requests when the boot phase created by
 `IoC.create('boot/httpserver')` is executed.  This phase is supplied by
@@ -205,3 +205,43 @@ The services provided by the application are declared in [app/services.json](htt
     }
 }
 ```
+
+Service discovery is one of the key pieces of functionality provided by
+Bixby.js.  A service registry provides a way for an application to discover
+services provided by other applications.
+
+The JSON above indicates that the service _type_ `http://schemas.example.com/api/math/v1`
+is available within the `math.common.` _domain_.  A domain is simply some
+logical grouping of functionality.  In this example, `math.common.` was chosen
+to indicate mathmatical operations made available to any other application that
+wishes to use them.  The service type is a well-known string that identifes the
+protocol or API implemented by the service.
+
+##### Start Server
+
+Let's go ahead and start the server.
+
+```bash
+$ npm start
+```
+
+If all goes well, you should see output similar to the following:
+
+```bash
+info: Connecting to service registry 127.0.0.1:4001
+debug: Connected to service registry 127.0.0.1:4001
+info: HTTP server listening on 0.0.0.0:64509
+info: Announcing service http://schemas.example.com/api/math/v1 in math.common. at http://10.200.1.85:64509/
+```
+
+Note the port assigned to the server and send it a request.
+
+```bash
+$ curl -X POST -H "Content-Type: application/json" --data "{\"operands\":[1,2]}" http://127.0.0.1:64509/add
+{"operands":[1,2],"result":3}
+```
+
+Great!  `mathd` is operational.
+
+
+### mathuid
