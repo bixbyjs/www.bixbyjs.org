@@ -5,7 +5,13 @@ title: 'Introduction'
 
 ### Introduction
 
-Bixby.js is a human-oriented approach to developing applications using [Node.js](http://nodejs.org/).
+Bixby.js is a toolkit for building services using [Node.js](http://nodejs.org/).
+Bixby.js provides facilities for logging, configuration, service discovery,
+message queuing, security, and other common functionality that is needed when
+building cloud-based applications.  Bixby.js lets developers spend more time
+building applications, and less time building infrastructure.
+
+
 
 Users expect modern applications to be accessible from anywhere, be it an office
 desktop, a tablet at home, a phone when on-the-go, or a web browser at a public
