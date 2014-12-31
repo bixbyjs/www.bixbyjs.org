@@ -152,7 +152,6 @@ to see how this works.
 var bodyParser = require('body-parser')
   , errorHandler = require('errorhandler');
 
-
 exports = module.exports = function(mq, logger) {
   
   function enqueue(req, res, next) {
