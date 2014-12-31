@@ -121,7 +121,7 @@ level = "debug"
 
 This example is configured to use [etcd](https://github.com/coreos/etcd) as a
 service registry and [RabbitMQ](http://www.rabbitmq.com/) as a message queue.
-Ensure that these services are running in order to the example code to work
+Ensure that these services are running in order for the example to work
 properly.
 
 ##### Draw Routes
