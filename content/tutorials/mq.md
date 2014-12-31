@@ -65,7 +65,7 @@ we continue.
 
 ##### Create Application
 
-The application is created in [app/app.js](hhttps://github.com/bixbyjs-examples/smsuid/blob/master/app/app.js).
+The application is created in [app/app.js](https://github.com/bixbyjs-examples/smsuid/blob/master/app/app.js).
 
 The first thing we do is configure the IoC container so that it contains the
 components required by the application.
