@@ -106,7 +106,7 @@ discover them.
 
 The settings for this application are located in [etc/development.toml](https://github.com/bixbyjs-examples/smsuid/blob/master/etc/development.toml).
 
-```
+```toml
 [sd]
 url = "etcd://127.0.0.1:4001"
 
